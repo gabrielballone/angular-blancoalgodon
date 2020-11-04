@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from './Product';
+
 
 @Component({
   selector: 'app-product-list',
@@ -7,12 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductListComponent implements OnInit {
 
-  product = {
+  products: Product[] = [
+    {
     "name":"Percal 2 1/2 plazas flores",
     "type":"Sabanas",
-    "price":"$1500",
-    "stock":"3"
-  }
+    "price":1500,
+    "stock":3
+    },
+    {
+      "name":"Pluma 2 1/2 plazas rayas",
+      "type":"Acolchado",
+      "price":3000,
+      "stock":1
+    },
+    {
+      "name":"Toallon playero Agatha",
+      "type":"Toallones",
+      "price":800,
+      "stock":0
+    }
+    ];
 
   constructor() { }
 

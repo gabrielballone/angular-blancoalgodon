@@ -9,11 +9,26 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
+        <tr *ngFor="let product of products">
             <td>{{product.type}}</td>
             <td>{{product.name}}</td>
             <td>{{product.price}}</td>
-            <td>{{product.stock}}</td>
+            <td><span *ngIf="product.stock==0; then noHayStock else siHayStock"></span>
+                <ng-template #noHayStock>No disponible</ng-template>
+                <ng-template #siHayStock>{{product.stock}}</ng-template>
+            </td>
         </tr>
     </tbody>
 </table>
+<div class="d-flex flex-wrap">
+    <div *ngFor="let product of products" class="card" style="width: 18rem;">
+        <img src="https://loremflickr.com/320/240" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{product.type}}</h5>
+            <p class="card-text">{{product.name}}</p>
+            <p class="card-text">{{product.price}}</p>
+            <p class="card-text">{{product.stock}}</p>
+            <a href="# " class="btn btn-primary ">Ver más...</a>
+        </div>
+    </div>
+</div>
