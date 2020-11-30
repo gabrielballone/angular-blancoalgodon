@@ -19,10 +19,12 @@
 				<ng-template #siHayStock>{{product.stock}}</ng-template>
 			</td>
 			<td>
-        <button class="btn btn-primary btn-sm">-</button>
-        {{product.quantity}}
-        <button class="btn btn-primary btn-sm">+</button>
-      </td>
+        <div class="form-group">
+				<button type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-minus"></span></button>
+				{{product.quantity}}
+				<button type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-plus"></span></button>
+        </div>
+			</td>
 		</tr>
 	</tbody>
 </table>
