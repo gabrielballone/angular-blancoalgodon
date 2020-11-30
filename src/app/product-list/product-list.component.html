@@ -1,34 +1,34 @@
 <p>Lista de productos</p>
 <table class="table">
-    <thead>
-        <tr>
-            <th>Tipo</th>
-            <th>Nombre</th>
-            <th>Precio</th>
-            <th>Stock</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let product of products">
-            <td>{{product.type}}</td>
-            <td>{{product.name}}</td>
-            <td>{{product.price}}</td>
-            <td><span *ngIf="product.stock==0; then noHayStock else siHayStock"></span>
-                <ng-template #noHayStock>No disponible</ng-template>
-                <ng-template #siHayStock>{{product.stock}}</ng-template>
-            </td>
-        </tr>
-    </tbody>
+	<thead>
+		<tr>
+			<th>Tipo</th>
+			<th>Nombre</th>
+			<th>Precio</th>
+			<th>Stock</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let product of products">
+			<td >{{product.type}}</td>
+			<td>{{product.name}}</td>
+			<td>{{product.price | currency : currencyCode : digitInfo : '.0'}}</td>
+			<td><span *ngIf="product.stock==0; then noHayStock else siHayStock"></span>
+				<ng-template #noHayStock><span class="badge badge-warning">No disponible</span></ng-template>
+				<ng-template #siHayStock>{{product.stock}}</ng-template>
+			</td>
+		</tr>
+	</tbody>
 </table>
 <div class="d-flex flex-wrap">
-    <div *ngFor="let product of products" class="card" style="width: 18rem;">
-        <img src="https://loremflickr.com/320/240" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">{{product.type}}</h5>
-            <p class="card-text">{{product.name}}</p>
-            <p class="card-text">{{product.price}}</p>
-            <p class="card-text">{{product.stock}}</p>
-            <a href="# " class="btn btn-primary ">Ver más...</a>
-        </div>
-    </div>
+	<div *ngFor="let product of products" class="card" style="width: 18rem;">
+		<img src="https://loremflickr.com/320/240" class="card-img-top" alt="...">
+		<div class="card-body">
+			<h5 class="card-title">{{product.type}}</h5>
+			<p class="card-text">{{product.name}}</p>
+			<p class="card-text">{{product.price}}</p>
+			<p class="card-text">{{product.stock}}</p>
+			<a href="# " class="btn btn-primary ">Ver más...</a>
+		</div>
+	</div>
 </div>
