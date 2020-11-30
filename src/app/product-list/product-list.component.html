@@ -6,17 +6,23 @@
 			<th>Nombre</th>
 			<th>Precio</th>
 			<th>Stock</th>
+			<th>Compra</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr *ngFor="let product of products">
-			<td >{{product.type}}</td>
+			<td>{{product.type}}</td>
 			<td>{{product.name}}</td>
 			<td>{{product.price | currency : currencyCode : digitInfo : '.0'}}</td>
 			<td><span *ngIf="product.stock==0; then noHayStock else siHayStock"></span>
 				<ng-template #noHayStock><span class="badge badge-warning">No disponible</span></ng-template>
 				<ng-template #siHayStock>{{product.stock}}</ng-template>
 			</td>
+			<td>
+        <button class="btn btn-primary btn-sm">-</button>
+        {{product.quantity}}
+        <button class="btn btn-primary btn-sm">+</button>
+      </td>
 		</tr>
 	</tbody>
 </table>
