@@ -19,10 +19,15 @@
 				<ng-template #siHayStock>{{product.stock}}</ng-template>
 			</td>
 			<td>
-				<div class="form-group">
-					<button type="button" class="btn btn-primary btn-sm" (click)="downQuantity(product)">-</button>
-					<input type="text" [(ngModel)]="product.quantity" (keyup)="onChangeQuantity($event, product)">
-					<button type="button" class="btn btn-primary btn-sm" (click)="upQuantity(product)">+</button>
+
+				<div class="input-group">
+					<div class="input-group-prepend">
+						<button class="btn btn-info btn-sm" type="button" (click)="downQuantity(product)">-</button>
+					</div>
+					<input class="form-control" type="text" [(ngModel)]="product.quantity" (keyup)="onChangeQuantity($event, product)">
+					<div class="input-group-append">
+						<button class="btn btn-info btn-sm" type="button" (click)="upQuantity(product)">+</button>
+					</div>
 				</div>
 			</td>
 		</tr>
