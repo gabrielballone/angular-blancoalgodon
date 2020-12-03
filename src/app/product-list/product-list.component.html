@@ -2,6 +2,7 @@
 <table class="table">
 	<thead class="text-center">
 		<tr>
+			<th>Imagen</th>
 			<th>Tipo</th>
 			<th>Nombre</th>
 			<th>Precio</th>
@@ -12,6 +13,7 @@
 	</thead>
 	<tbody>
 		<tr *ngFor="let product of products">
+			<td><img [src]="product.image"></td>
 			<td>{{product.type}}</td>
 			<td>{{product.name}}</td>
 			<td class="text-center">{{product.price | currency : currencyCode : digitInfo : '.0'}}</td>
@@ -21,23 +23,10 @@
 			</td>
 			<td>
 				<app-input-integer [(quantity)]="product.quantity" [max]="product.stock" *ngIf="product.stock"></app-input-integer>				
-				<!-- Cant: {{product.quantity}} -->
 			</td>
 			<td>
-				<button class="btn btn-info" (click)="addToCart(product)">Comprar</button>
+				<button *ngIf="product.stock" class="btn btn-info" (click)="addToCart(product)">Comprar</button>
 			</td>
 		</tr>
 	</tbody>
 </table>
-<div class="d-flex flex-wrap">
-	<div *ngFor="let product of products" class="card" style="width: 18rem;">
-		<img src="https://loremflickr.com/320/240" class="card-img-top" alt="...">
-		<div class="card-body">
-			<h5 class="card-title">{{product.type}}</h5>
-			<p class="card-text">{{product.name}}</p>
-			<p class="card-text">{{product.price}}</p>
-			<p class="card-text">{{product.stock}}</p>
-			<a href="# " class="btn btn-primary ">Ver más...</a>
-		</div>
-	</div>
-</div>
