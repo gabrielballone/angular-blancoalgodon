@@ -1,5 +1,5 @@
 <h3>Lista de productos</h3>
-<table class="table">
+<table class="table w-auto table-responsive text-nowrap table-striped">
 	<thead class="text-center">
 		<tr>
 			<th>Imagen</th>
@@ -22,7 +22,7 @@
 				<ng-template #siHayStock>{{product.stock}}</ng-template>
 			</td>
 			<td>
-				<app-input-integer [(quantity)]="product.quantity" [max]="product.stock" *ngIf="product.stock"></app-input-integer>				
+				<app-input-integer *ngIf="product.stock" [(quantity)]="product.quantity" [max]="product.stock"></app-input-integer>				
 			</td>
 			<td>
 				<button *ngIf="product.stock" class="btn btn-info" (click)="addToCart(product)">Comprar</button>

@@ -16,11 +16,11 @@ export class ProductCartService {
   addToCart(product: Product) {
     let item: Product = this._cartList.find((value1) => value1.name == product.name);
     if (!item){
-      this._cartList.push({...product});
+      this._cartList.push({ ... product});
     } else {
       item.quantity += product.quantity;
     }    
-    console.log(this.cartList);
+    // console.log(this.cartList);
     this.cartList.next(this._cartList);
   }
   

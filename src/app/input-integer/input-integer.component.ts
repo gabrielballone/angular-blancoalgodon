@@ -30,9 +30,11 @@ export class InputIntegerComponent implements OnInit {
   }
 
   onChangeQuantity(event): void {
-    // if (event.key >= 0 && event.key <= 9 ){
-    //   event.preventDefault();
-    // }
-    console.log(event);
+    console.log(event.key);
+    console.log(isNaN(event.key));
+      if (isNaN(event.key) || event.target.value > this.max) {
+      this.quantity = this.max;
+    }
+    this.quantityChange.emit(this.quantity);
   }
 }

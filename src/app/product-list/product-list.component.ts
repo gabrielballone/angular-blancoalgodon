@@ -61,8 +61,13 @@ export class ProductListComponent implements OnInit {
   }
 
   addToCart(product):void{
-    this.cart.addToCart(product);
-    product.stock -= product.quantity;
-    product.quantity = 0;
+    if (product.quantity != 0){
+      this.cart.addToCart(product);
+      product.stock -= product.quantity;
+      product.quantity = 0;
+    } else {
+      alert("Ingrese una cantidad válida.")
+    }
+    
   }
 }

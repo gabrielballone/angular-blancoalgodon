@@ -1,23 +1,23 @@
 <h3>Carrito de compras</h3>
-<table class="table">
+<table class="table table-responsive">
     <thead class="text-center">
         <tr>
             <th>Tipo</th>
             <th>Nombre</th>
             <th>Precio</th>
             <th>Cantidad</th>
-            <th></th>
+            <!-- <th></th> -->
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let product of (cartList$ | async)">
             <td>{{product.type}}</td>
             <td>{{product.name}}</td>
-            <td class="text-center">>{{product.price | currency : currencyCode : digitInfo : '.0'}}</td>
-            <td class="text-center">{{product.stock}}</td>
-            <td>
+            <td class="text-center">{{product.price | currency : currencyCode : digitInfo : '.0'}}</td>
+            <td class="text-center">{{product.quantity}}</td>
+            <!-- <td>
                 <button class="btn btn-info" (click)="removeFromCart(product)">Eliminar</button>
-            </td>
+            </td> -->
         </tr>
     </tbody>
 </table>
