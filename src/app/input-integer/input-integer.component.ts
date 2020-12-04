@@ -1,38 +1,33 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 @Component({
-  selector: 'app-input-integer',
-  templateUrl: './input-integer.component.html',
-  styleUrls: ['./input-integer.component.scss']
+  selector: "app-input-integer",
+  templateUrl: "./input-integer.component.html",
+  styleUrls: ["./input-integer.component.scss"]
 })
 export class InputIntegerComponent implements OnInit {
-
-  constructor() { }
+  constructor() {}
   @Input() quantity: number;
   @Input() max: number;
   @Output() quantityChange: EventEmitter<number> = new EventEmitter<number>();
 
-  ngOnInit(): void {
-  }
-  
+  ngOnInit(): void {}
+
   upQuantity(): void {
     if (this.quantity < this.max) {
       this.quantity++;
       this.quantityChange.emit(this.quantity);
     }
-
   }
 
   downQuantity(): void {
-    if (this.quantity > 0){
+    if (this.quantity > 0) {
       this.quantity--;
       this.quantityChange.emit(this.quantity);
-    } 
+    }
   }
 
   onChangeQuantity(event): void {
-    console.log(event.key);
-    console.log(isNaN(event.key));
-      if (isNaN(event.key) || event.target.value > this.max) {
+    if (isNaN(event.key) || event.target.value > this.max) {
       this.quantity = this.max;
     }
     this.quantityChange.emit(this.quantity);
